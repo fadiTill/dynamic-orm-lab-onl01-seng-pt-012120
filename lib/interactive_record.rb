@@ -58,6 +58,11 @@ end
  def self.find_by(attribute)
    col_name = attribute.keys[0].to_s
    value_name = attribute.values[0]
+   sql = <<-SQL
+   SELECT * FROM #{table_name}
+   WHERE#{column_names} = ?
+   SQL
+   DB[:conn].execute(sql,value_name);
 
 end
 end
