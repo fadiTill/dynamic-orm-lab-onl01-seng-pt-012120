@@ -51,18 +51,18 @@ def save
   @id = DB[:conn].execute("SELECT last_insert_rowid() FROM #{table_name_for_insert}")[0][0]
 end
 
-def self.find_by_name(name)
-  DB[:conn].execute("SELECT * FROM #{self.table_name} WHERE name = ?")
-end
-
- def self.find_by(attributes)
-   col_name = attributes.keys[0].to_s
-   value_name = attributes.values[0]
-   sql = <<-SQL
-   SELECT * FROM #{table_name}
-   WHERE#{column_names} = ?
-   SQL
-   DB[:conn].execute(sql,value_name);
-
-end
+# def self.find_by_name(name)
+#   DB[:conn].execute("SELECT * FROM #{self.table_name} WHERE name = ?")
+# end
+#
+#  def self.find_by(attributes)
+#    col_name = attributes.keys[0].to_s
+#    value_name = attributes.values[0]
+#    sql = <<-SQL
+#    SELECT * FROM #{table_name}
+#    WHERE#{column_names} = ?
+#    SQL
+#    DB[:conn].execute(sql,value_name);
+#
+# end
 end
