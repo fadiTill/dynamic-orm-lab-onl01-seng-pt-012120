@@ -60,7 +60,7 @@ end
    value_name = attributes.values[0]
    sql = <<-SQL
    SELECT * FROM #{table_name}
-   WHERE#{column_names} = '#{name}'
+   WHERE#{column_names} = ?
    SQL
    DB[:conn].execute(sql,value_name);
 
